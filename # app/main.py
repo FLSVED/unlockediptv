@@ -1,15 +1,15 @@
 import sys
 import os
 
-# Ajouter le répertoire 'app' au chemin d'importation
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'app')))
+# Ajouter le répertoire parent 'unlockediptv' au chemin d'importation
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import uvicorn
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.security import setup_security  # Correction de l'importation
-from app.api.routes import router
+from app.core.security import setup_security  # Importation depuis 'core.security'
+from app.api.routes import router  # Importation depuis 'api.routes'
 
 # Initialisation du logging
 logging.basicConfig(level=logging.INFO)
