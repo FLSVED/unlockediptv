@@ -41,3 +41,4 @@ coll = COLLECT(
     upx_exclude=[],
     name='unlockediptv',
 )
+datas=[('app', 'app')]
