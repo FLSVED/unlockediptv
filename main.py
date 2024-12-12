@@ -1,14 +1,15 @@
 import sys
 import os
+
+# Ajouter le répertoire 'app' au chemin d'importation
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'app')))
+
 import uvicorn
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.security import setup_security
+from core.security import setup_security
 from app.api.routes import router
-
-# Ajouter le répertoire 'app' au chemin d'importation
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'app')))
 
 # Initialisation du logging
 logging.basicConfig(level=logging.INFO)
