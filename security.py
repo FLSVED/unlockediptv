@@ -28,3 +28,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+# app/core/security.py
+
+def setup_security(app):
+    print("Configuration de la sécurité...")
+    # Ajoutez ici le code pour configurer la sécurité de votre application
