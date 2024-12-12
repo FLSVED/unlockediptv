@@ -1,3 +1,7 @@
+import uvicorn
+import sys
+import os
+from app.core.security import setup_security
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.security import setup_security
@@ -21,7 +25,11 @@ setup_security(app)
 app.include_router(router, prefix="/api/v1")
 
 if __name__ == "__main__":
-    import uvicorn
+    
     uvicorn.run(app, host="0.0.0.0", port=8000)
     input("Appuyez sur Entrée pour fermer...")
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'app')))
+
+
 
