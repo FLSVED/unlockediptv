@@ -1,20 +1,20 @@
 import tkinter as tk
 from tkinter import messagebox
 import threading
-import uvicorn
+import subprocess
 import sys
 import os
 
 # Ajouter le répertoire parent 'unlockediptv' au chemin d'importation
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from main import app  # Importation correcte du module app
+# Assurez-vous que le chemin vers fastapi.exe est correct
+FASTAPI_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'mon_env', 'Scripts', 'fastapi.exe'))
+API_SCRIPT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'main.py'))
 
 def start_server():
     """Lancer le serveur FastAPI dans un thread séparé."""
-    config = uvicorn.Config(app, host="0.0.0.0", port=8000, log_level="info")
-    server = uvicorn.Server(config)
-    server.run()
+    subprocess.Popen([FASTAPI_PATH, "run", "--host", "0.0.0.0", "--port", "8000", API_SCRIPT])
 
 def on_start():
     """Démarrer le serveur FastAPI."""
