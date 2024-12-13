@@ -10,6 +10,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.security import setup_security
 from app.api.routes import router
+from app.api.endpoints import users
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
