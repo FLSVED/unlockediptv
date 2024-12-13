@@ -8,8 +8,8 @@ import uvicorn
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.security import setup_security  # Importation depuis 'core.security'
-from app.api.routes import router  # Importation depuis 'api.routes'
+from app.core.security import setup_security
+from app.api.routes import router
 
 # Initialisation du logging
 logging.basicConfig(level=logging.INFO)
